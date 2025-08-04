@@ -1,0 +1,40 @@
+-------------------------------------------------------------------------------
+--
+-- keymaps
+--
+-------------------------------------------------------------------------------
+-- quick-save
+vim.keymap.set('n', '<leader>w', '<cmd>w<cr>')
+-- make missing : less annoying
+vim.keymap.set('n', ';', ':')
+-- Jump to start and end of line using the home row keys
+vim.keymap.set('', 'H', '^')
+vim.keymap.set('', 'L', '$')
+
+-- greatest remap ever (modified)
+vim.keymap.set("x", "p", [["_dP]])
+
+-- next greatest remap ever : asbjornHaland
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+-- Paste from system clipboard after cursor/ replace selection
+vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
+-- Paste from system clipboard before cursor / replace selection
+vim.keymap.set({ "n", "v" }, "<leader>P", [["+P]])
+
+-- handy keymap for replacing up to next _ (like in variable names)
+vim.keymap.set('n', '<leader>m', 'ct_')
+-- handy keymap for replacing up to previous _ (like in variable names)
+vim.keymap.set('n', '<leader>M', 'cT_')
+
+-- always center search results
+vim.keymap.set('n', 'n', 'nzz', { silent = true })
+vim.keymap.set('n', 'N', 'Nzz', { silent = true })
+
+-- make j and k move by visual line, not actual line, when text is soft-wrapped
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
+
+-- Make escape undo search highlight
+vim.keymap.set('n', '<Esc>', '<cmd>noh<CR><Esc>', { silent = true })
