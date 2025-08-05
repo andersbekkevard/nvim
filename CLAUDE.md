@@ -15,7 +15,7 @@ This is a **dynamic Neovim configuration** that adapts based on the environment:
 lua/anders/
 ├── init.lua              # Main entry point
 ├── set.lua              # Neovim preferences and options
-├── remap.lua            # Core keybindings
+├── keybinds.lua         # Core keybindings (both environments + Neovim-only)
 ├── autocmds.lua         # Autocommands (highlight on yank)
 ├── lazy_init.lua        # Lazy.nvim setup
 └── lazy/
@@ -26,16 +26,17 @@ lua/anders/
     │   ├── telescope.lua
     │   ├── theme.lua
     │   ├── lsp.lua
-    │   └── completion.lua
+    │   ├── completion.lua
+    │   ├── oil.lua
+    │   └── vim-be-good.lua
     └── vscode/         # VS Code/Cursor specific
-        ├── keybinds.lua # H/L line navigation
         └── highlight.lua # Highlight on yank for VS Code
 ```
 
 ### Configuration Logic
-- **VS Code/Cursor**: Minimal setup with flash.nvim, H/L keybinds, and highlight on yank
-- **Regular Neovim**: Full feature set including LSP, telescope, themes, completion
-- **Shared configs**: Flash configuration is shared between both environments
+- **VS Code/Cursor**: Minimal setup with flash.nvim, core keybinds, and highlight on yank
+- **Regular Neovim**: Full feature set including LSP, telescope, themes, completion, plus additional Neovim-only keybinds
+- **Shared configs**: Flash configuration is shared; keybindings are loaded in both environments with Neovim-specific additions
 
 ## Key Configurations
 
@@ -69,3 +70,9 @@ Space is set as the leader key (`vim.g.mapleader = " "`)
 
 ### Plugin Management
 Uses lazy.nvim with automatic installation. Plugin configs are modular and environment-aware.
+
+## Important Context and Guidance
+
+### Interpreting Configuration References
+- `@jon.md`, `@vetle.md`, and `@prime.md` are ONLY example files
+- When asked "How can I do this" or "How is x implemented", ALWAYS refer to the ACTUAL real .lua config files, NOT these markdown example files

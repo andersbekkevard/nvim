@@ -10,6 +10,10 @@ return {
 			-- Setup language servers.
 			local lspconfig = require('lspconfig')
 
+			-- Global diagnostic keymaps
+			vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open diagnostic float' })
+			vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic list' })
+
 			-- Rust
 			lspconfig.rust_analyzer.setup({
 				-- Server-specific settings. See `:help lspconfig-setup`
