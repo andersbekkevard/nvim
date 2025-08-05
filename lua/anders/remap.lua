@@ -5,8 +5,6 @@
 -------------------------------------------------------------------------------
 -- quick-save
 vim.keymap.set('n', '<leader>w', '<cmd>w<cr>')
--- make missing : less annoying
-vim.keymap.set('n', ';', ':')
 -- Jump to start and end of line using the home row keys
 vim.keymap.set('', 'H', '^')
 vim.keymap.set('', 'L', '$')
@@ -31,10 +29,21 @@ vim.keymap.set('n', '<leader>M', 'cT_')
 -- always center search results
 vim.keymap.set('n', 'n', 'nzz', { silent = true })
 vim.keymap.set('n', 'N', 'Nzz', { silent = true })
-
+-- Remap to center on vertical jump
+vim.keymap.set('n', '<C-u>', "<C-u>zz")
+vim.keymap.set('n', '<C-d>', "<C-d>zz")
 -- make j and k move by visual line, not actual line, when text is soft-wrapped
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
 -- Make escape undo search highlight
 vim.keymap.set('n', '<Esc>', '<cmd>noh<CR><Esc>', { silent = true })
+
+-- More granularity in undoblocks
+vim.keymap.set("i", "<Space>", "<Space><C-g>u")
+vim.keymap.set("i", ".", ".<C-g>u")
+vim.keymap.set("i", ",", ",<C-g>u")
+vim.keymap.set("i", ";", ";<C-g>u")
+vim.keymap.set("i", ":", ":<C-g>u")
+vim.keymap.set("i", "!", "!<C-g>u")
+vim.keymap.set("i", "?", "?<C-g>u")

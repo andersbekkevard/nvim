@@ -30,3 +30,7 @@ vim.api.nvim_create_autocmd('Filetype', {
 })
 -- enable mouse mode for resizing panes
 vim.o.mouse = "a"
+
+-- Perform a source zshrc
+vim.opt.shell = "/bin/zsh"
+vim.opt.shellcmdflag = "-i -c"
