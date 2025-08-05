@@ -61,4 +61,11 @@ if not vim.g.vscode then
 	
 	-- LazyGit
 	vim.keymap.set('n', '<leader>lg', ":LazyGit<enter>", { desc = '[L]azy [G]it' })
+	
+	-- Buffer navigation (like Jon's setup)
+	-- <leader><leader> toggles between current and previous buffer
+	vim.keymap.set('n', '<leader><leader>', '<c-^>', { desc = 'Toggle between buffers' })
+	-- 0 and + for sequential buffer navigation (like Jon's arrow keys)
+	vim.keymap.set('n', '0', ':bp<cr>', { desc = 'Previous buffer' })
+	vim.keymap.set('n', '+', ':bn<cr>', { desc = 'Next buffer' })
 end

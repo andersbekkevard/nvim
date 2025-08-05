@@ -14,16 +14,23 @@ return {
 			-- Suppress deprecated API warnings by setting deprecation level
 			vim.deprecate = function() end
 
-			require('telescope').setup({})
+			require('telescope').setup({
+				defaults = {
+					mappings = {
+						i = {
+							["<C-c>"] = require('telescope.actions').close,
+						},
+					},
+				},
+			})
 
 			local builtin = require('telescope.builtin')
 			-- Buffer and file navigation
-			vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = 'Find existing buffers' })
+			vim.keymap.set('n', '<leader>f', builtin.buffers, { desc = 'Find existing buffers' })
 			vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = 'Find recently opened files' })
 			
 			-- File finding
 			vim.keymap.set('n', '<leader>sf', builtin.find_files, {})
-			vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 			
 			-- Search functionality
 			vim.keymap.set('n', '<leader>sws', function()
