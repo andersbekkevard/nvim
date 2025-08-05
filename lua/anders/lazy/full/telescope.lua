@@ -17,9 +17,15 @@ return {
 			require('telescope').setup({})
 
 			local builtin = require('telescope.builtin')
-			-- TODO Rethink these keybinds
+			-- Buffer and file navigation
+			vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = 'Find existing buffers' })
+			vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = 'Find recently opened files' })
+			
+			-- File finding
 			vim.keymap.set('n', '<leader>sf', builtin.find_files, {})
 			vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+			
+			-- Search functionality
 			vim.keymap.set('n', '<leader>sws', function()
 				local word = vim.fn.expand("<cword>")
 				builtin.grep_string({ search = word })

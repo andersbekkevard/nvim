@@ -15,5 +15,6 @@ else
 		require("anders.lazy.full.telescope"),
 		require("anders.lazy.shared.flash"),
 		require("anders.lazy.full.oil"),
+		require("anders.lazy.full.vim-be-good"),
 	}
 end
