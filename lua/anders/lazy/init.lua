@@ -14,5 +14,6 @@ else
 		require("anders.lazy.full.completion"),
 		require("anders.lazy.full.telescope"),
 		require("anders.lazy.shared.flash"),
+		require("anders.lazy.full.oil"),
 	}
 end

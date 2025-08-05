@@ -36,8 +36,10 @@ vim.keymap.set('n', '<C-d>', "<C-d>zz")
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
--- Make escape undo search highlight
-vim.keymap.set('n', '<Esc>', '<cmd>noh<CR><Esc>', { silent = true })
+-- Make escape undo search highlight and save
+vim.keymap.set('n', '<Esc>', '<cmd>w<CR><cmd>noh<CR><Esc>', { silent = true })
+-- Save on escape from insert mode
+vim.keymap.set('i', '<Esc>', '<Esc><cmd>w<CR>', { silent = true })
 
 -- More granularity in undoblocks
 vim.keymap.set("i", "<Space>", "<Space><C-g>u")
