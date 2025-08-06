@@ -45,6 +45,9 @@ return {
 			-- Python
 			lspconfig.pyright.setup({})
 
+			-- Java
+			lspconfig.jdtls.setup({})
+
 		end
 	},
 
@@ -58,5 +61,18 @@ return {
 			vim.g.rustfmt_fail_silently = 0
 			vim.g.rust_clip_command = 'wl-copy'
 		end
+	},
+
+	-- Treesitter for better syntax highlighting
+	{
+		'nvim-treesitter/nvim-treesitter',
+		build = ':TSUpdate',
+		config = function()
+			require('nvim-treesitter.configs').setup({
+				ensure_installed = { 'python', 'rust', 'java', 'lua', 'vim', 'vimdoc' },
+				highlight = { enable = true },
+				indent = { enable = true },
+			})
+		end,
 	},
 }
