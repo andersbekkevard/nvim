@@ -42,15 +42,9 @@ return {
 				},
 			})
 
-			-- Bash LSP
-			if vim.fn.executable('bash-language-server') == 1 then
-				lspconfig.bashls.setup({})
-			end
+			-- Python
+			lspconfig.pyright.setup({})
 
-			-- Ruff for Python
-			if vim.fn.executable('ruff-lsp') == 1 then
-				lspconfig.ruff_lsp.setup({})
-			end
 		end
 	},
 
