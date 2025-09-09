@@ -9,6 +9,9 @@ return {
 		config = function()
 			-- Setup language servers.
 			local lspconfig = require('lspconfig')
+			
+			-- Add completion capabilities
+			local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 			-- Global diagnostic keymaps
 			vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open diagnostic float' })
@@ -16,6 +19,7 @@ return {
 
 			-- Rust
 			lspconfig.rust_analyzer.setup({
+				capabilities = capabilities,
 				-- Server-specific settings. See `:help lspconfig-setup`
 				settings = {
 					["rust-analyzer"] = {
@@ -43,10 +47,14 @@ return {
 			})
 
 			-- Python
-			lspconfig.pyright.setup({})
+			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
 
 			-- Java
-			lspconfig.jdtls.setup({})
+			lspconfig.jdtls.setup({
+				capabilities = capabilities,
+			})
 
 		end
 	},
