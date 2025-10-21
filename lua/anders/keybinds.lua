@@ -18,6 +18,10 @@ vim.keymap.set("x", "p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+-- Delete to system clipboard
+vim.keymap.set({ "n", "v" }, "<leader>d", [["+d]])
+vim.keymap.set("n", "<leader>D", [["+D]])
+
 -- Paste from system clipboard after cursor/ replace selection
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
 -- Paste from system clipboard before cursor / replace selection
@@ -58,10 +62,10 @@ vim.keymap.set("i", "?", "?<C-g>u")
 if not vim.g.vscode then
 	-- Replace word under cursor with substitution pattern
 	vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-	
+
 	-- LazyGit
 	vim.keymap.set('n', '<leader>lg', ":LazyGit<enter>", { desc = '[L]azy [G]it' })
-	
+
 	-- Buffer navigation (like Jon's setup)
 	-- <leader><leader> toggles between current and previous buffer
 	vim.keymap.set('n', '<leader><leader>', '<c-^>', { desc = 'Toggle between buffers' })
