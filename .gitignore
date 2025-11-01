@@ -1,2 +1,37 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Neovim
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+*.log
+*.undo
+*.un~
+
+# Neovim plugin manager
 lazy-lock.json
+
+# Plugin caches and data
+plugin/
+pack/
+start/
+
+# LSP and other caches
+.nvim/
+*.session
+*.session.lock
+
+# Claude
 .claude/
+
+# Other
+*.orig
+*.rej
+tags
+TAGS
